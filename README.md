@@ -24,14 +24,16 @@ Diseño moderno, modo oscuro nativo, paleta de marca y experiencia pulida lista 
     <td align="center"><strong>Redactar — Modo oscuro</strong></td>
   </tr>
   <tr>
-    <td><img src=".github/screenshots/dark-login.png" alt="Login dark mode" width="480"/></td>
-    <td><img src=".github/screenshots/dark-compose.png" alt="Compose dark mode" width="480"/></td>
+    <td><img width="480" alt="image" src="https://github.com/user-attachments/assets/8f0e2beb-c3b9-493f-aef5-174efa560a10" /></td>
+    <td><img width="480" alt="image" src="https://github.com/user-attachments/assets/50f837d6-1ad1-460a-aa54-37ff7b575a79" />
+</td>
   </tr>
   <tr>
     <td colspan="2" align="center"><strong>Redactar — Modo claro</strong></td>
   </tr>
   <tr>
-    <td colspan="2" align="center"><img src=".github/screenshots/light-compose.png" alt="Compose light mode" width="480"/></td>
+    <td colspan="2" align="center"><img width="480" alt="image" src="https://github.com/user-attachments/assets/610cdb7e-925c-4a6e-a542-fe0d1709bf1b" />
+</td>
   </tr>
 </table>
 
