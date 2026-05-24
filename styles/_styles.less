@@ -1,0 +1,357 @@
+/**
+ * NextAura Mail - Brand style overrides
+ *
+ * Refinamientos visuales sobre el tema Elastic para alinearlo
+ * con la identidad de NextAura. Sin gradientes, colores planos.
+ *
+ * Tema base: Elastic (c) The Roundcube Dev Team - Aleksander Machniak
+ * Personalización: (c) NextAura
+ */
+
+// Paleta NextAura
+@nx-primary: #a27aff;
+@nx-primary-hover: #b89aff;
+@nx-primary-active: #7c3aed;
+@nx-primary-deep: #6d28d9;
+@nx-primary-soft: #ede9fe;
+@nx-primary-soft-2: #f3eeff;
+@nx-dark: #0a0a0a;
+@nx-dark-2: #1f1f23;
+@nx-dark-3: #2a1f3d;
+@nx-dark-hover: #1f1a2e;
+
+// =====================================================================
+// LOGIN
+// =====================================================================
+.task-login {
+  #layout-content {
+    background: #ffffff;
+  }
+  #logo {
+    max-height: 130px;
+ 
+
+html.dark-mode .task-login #logo {
+    content: url(../images/logo-dark.png);
+}   filter: drop-shadow(0 10px 28px fadeout(@nx-primary, 65%));
+  }
+}
+
+#login-form .btn-primary {
+  width: 100%;
+  height: 2.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+// =====================================================================
+// BOTONES
+// =====================================================================
+.btn-primary,
+.formbuttons .btn-primary,
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset button.mainaction {
+  background: @nx-primary !important;
+  border-color: @nx-primary-active !important;
+  box-shadow: 0 2px 8px fadeout(@nx-primary, 65%);
+  font-weight: 600;
+
+  &:hover,
+  &:focus {
+    background: @nx-primary-hover !important;
+    border-color: @nx-primary !important;
+    box-shadow: 0 4px 14px fadeout(@nx-primary, 55%);
+  }
+
+  &:active,
+  &:not(:disabled):not(.disabled):active {
+    background: @nx-primary-active !important;
+    border-color: @nx-primary-deep !important;
+  }
+}
+
+a.button.icon.toolbar-button:not(.disabled):hover,
+.toolbar a.button:not(.disabled):hover {
+  color: @nx-primary-active !important;
+  background-color: @nx-primary-soft !important;
+}
+
+// =====================================================================
+// TASKMENU (barra lateral izquierda)
+// =====================================================================
+#taskmenu {
+  background: @nx-dark !important;
+  border-right: 1px solid fadeout(@nx-primary, 85%);
+
+  a {
+    color: #d6d6dd !important;
+    transition:
+      background 0.15s ease,
+      color 0.15s ease,
+      box-shadow 0.15s ease;
+
+    &:hover {
+      background: @nx-dark-2 !important;
+      color: #ffffff !important;
+    }
+
+    &.selected,
+    &.selected:hover {
+      background: @nx-dark-2 !important;
+      color: #ffffff !important;
+      box-shadow: inset 3px 0 0 @nx-primary;
+      &:before {
+        color: @nx-primary;
+      }
+    }
+
+    &.logout {
+      color: #ff7b78 !important;
+    }
+  }
+
+  .special-buttons {
+    background: @nx-dark !important;
+    border-top: 1px solid fadeout(@nx-primary, 90%);
+  }
+
+  .action-buttons a {
+    color: @nx-primary !important;
+    &:hover {
+      color: #ffffff !important;
+      background: @nx-primary-active !important;
+    }
+  }
+}
+
+// =====================================================================
+// SIDEBAR / LISTAS DE CARPETAS
+// =====================================================================
+#layout-sidebar {
+  background: @nx-primary-soft-2 !important;
+}
+
+.folderlist li.mailbox.selected > a,
+.folderlist li.mailbox > a.selected,
+ul.treelist li.selected > a {
+  background: @nx-primary-soft !important;
+  color: @nx-primary-active !important;
+  font-weight: 600;
+  box-shadow: inset 3px 0 0 @nx-primary;
+}
+
+.folderlist li.mailbox .unreadcount {
+  background: @nx-primary !important;
+  color: #ffffff !important;
+  box-shadow: 0 1px 3px fadeout(@nx-primary, 60%);
+}
+
+.folderlist li.mailbox.recent > a {
+  color: @nx-primary-active !important;
+}
+
+// =====================================================================
+// LISTADOS (mensajes, contactos…)
+// =====================================================================
+.listing li.selected,
+.listing tr.selected td,
+.listing tbody tr.selected td {
+  background-color: @nx-primary-soft-2 !important;
+  color: #161b1d !important;
+  box-shadow: inset 3px 0 0 @nx-primary;
+}
+
+html:not(.touch) .listing li:not(.selected):hover,
+html:not(.touch) .listing tbody tr:not(.selected):hover td {
+  background-color: fadeout(@nx-primary-soft, 30%);
+}
+
+.listing .unread .subject {
+  color: @nx-primary-active;
+}
+
+// =====================================================================
+// HEADERS
+// =====================================================================
+#layout > div > .header,
+#layout > div > .scroller {
+  background: #fff !important;
+  border-bottom: 1px solid fadeout(@nx-primary, 85%);
+}
+
+// =====================================================================
+// FORMULARIOS
+// =====================================================================
+.form-control:focus,
+.tagedit-list[tabindex="-1"],
+.recipient-input:focus-within {
+  border-color: @nx-primary !important;
+  box-shadow: 0 0 0 0.2rem fadeout(@nx-primary, 70%) !important;
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label:before,
+.custom-radio .custom-control-input:checked ~ .custom-control-label:before {
+  background-color: @nx-primary !important;
+  border-color: @nx-primary !important;
+}
+
+// =====================================================================
+// SCROLLBARS
+// =====================================================================
+html {
+  scrollbar-color: @nx-primary #f1f1f1;
+}
+html:not(.touch) ::-webkit-scrollbar-thumb {
+  background-color: @nx-primary !important;
+  border-radius: 4px;
+}
+
+// =====================================================================
+// PÁGINA "ACERCA DE" y alerts informativas
+// =====================================================================
+.frame-content {
+  h2.sysname,
+  .copyright,
+  .license {
+    color: @nx-primary-active;
+  }
+
+  a:not(.btn) {
+    color: @nx-primary;
+    &:hover {
+      color: @nx-primary-active;
+    }
+  }
+}
+
+.ui.alert.boxinformation,
+.ui.alert.alert-info {
+  background-color: fadeout(@nx-primary, 88%) !important;
+  border-color: fadeout(@nx-primary, 75%) !important;
+  color: #161b1d;
+
+  > i.icon:before {
+    color: @nx-primary-active !important;
+  }
+}
+
+#messagestack .alert-info,
+#messagestack .alert-info.information {
+  background-color: @nx-primary !important;
+  color: #ffffff !important;
+}
+
+// =====================================================================
+// MODO OSCURO
+// =====================================================================
+html.dark-mode {
+  body,
+  #layout {
+    background-color: #0f0f12;
+  }
+
+  #layout-sidebar,
+  #layout-list,
+  #layout-content {
+    background: #131318 !important;
+  }
+
+  #layout > div > .header {
+    background: #161620 !important;
+    border-bottom: 1px solid fadeout(@nx-primary, 80%);
+  }
+
+  #taskmenu {
+    background: @nx-dark !important;
+
+    a {
+      color: #c9c5d6 !important;
+
+      &:hover,
+      &:focus {
+        background: @nx-dark-hover !important;
+        color: #ffffff !important;
+      }
+
+      &.selected,
+      &.selected:hover {
+        background: @nx-dark-3 !important;
+        color: #ffffff !important;
+        box-shadow: inset 3px 0 0 @nx-primary;
+        &:before {
+          color: @nx-primary;
+        }
+      }
+    }
+  }
+
+  .listing li.selected,
+  .listing tr.selected td,
+  .listing tbody tr.selected td {
+    background-color: @nx-dark-3 !important;
+    color: #ffffff !important;
+    box-shadow: inset 3px 0 0 @nx-primary;
+  }
+
+  .listing li:not(.selected):hover,
+  .listing tbody tr:not(.selected):hover td {
+    background-color: fadeout(@nx-primary, 88%) !important;
+    color: #ffffff !important;
+  }
+
+  .folderlist li.mailbox:not(.selected) > a:hover,
+  ul.treelist li:not(.selected) > a:hover {
+    background-color: fadeout(@nx-primary, 88%) !important;
+    color: #ffffff !important;
+  }
+
+  .folderlist li.mailbox.selected > a,
+  ul.treelist li.selected > a {
+    background: fadeout(@nx-primary, 82%) !important;
+    color: @nx-primary !important;
+    box-shadow: inset 3px 0 0 @nx-primary;
+  }
+
+  .menu a:not(.disabled):focus,
+  .menu a:not(.disabled):hover,
+  .menu.toolbar .dropbutton:not(.disabled):hover {
+    background-color: fadeout(@nx-primary, 82%) !important;
+    color: #ffffff !important;
+  }
+
+  .popover .menu li a:not(.disabled):hover {
+    color: #ffffff !important;
+    background-color: @nx-primary-active !important;
+  }
+
+  a.button.icon.toolbar-button:not(.disabled):hover,
+  .toolbar a.button:not(.disabled):hover,
+  .header a.button.icon:not(.disabled):hover,
+  .header a.button.icon:not(.disabled):focus {
+    color: @nx-primary !important;
+    background-color: fadeout(@nx-primary, 82%) !important;
+  }
+
+  .btn-secondary:hover,
+  .btn-secondary:focus {
+    background: #3a3148 !important;
+    border-color: @nx-primary !important;
+    color: #ffffff !important;
+  }
+
+  .frame-content a:not(.btn) {
+    color: @nx-primary-hover;
+    &:hover {
+      color: @nx-primary;
+    }
+  }
+
+  .ui.alert.boxinformation,
+  .ui.alert.alert-info {
+    background-color: fadeout(@nx-primary, 82%) !important;
+    color: #ffffff !important;
+  }
+
+  html:not(.touch) ::-webkit-scrollbar-thumb {
+    background-color: @nx-primary-active !important;
+  }
+}
