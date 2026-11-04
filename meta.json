@@ -1,7 +1,7 @@
 {
     "name": "NextAura Mail",
     "author": "NextAura (skin basado en \"Elastic\" de Aleksander Machniak)",
-    "url": "https://github.com/TheIsmael12/nextaura-roundcube",
+    "url": "https://github.com/NextAura-ES/nextaura-roundcube",
     "license": "Creative Commons Attribution-ShareAlike",
     "license-url": "http://creativecommons.org/licenses/by-sa/3.0/",
     "extends": "elastic",

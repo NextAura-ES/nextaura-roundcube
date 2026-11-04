@@ -97,7 +97,7 @@ nextaura-roundcube/
 ### 1. Copiar el skin
 
 ```bash
-git clone https://github.com/TheIsmael12/nextaura-roundcube.git /var/www/roundcube/skins/nextaura
+git clone https://github.com/NextAura-ES/nextaura-roundcube.git /var/www/roundcube/skins/nextaura
 ```
 
 O con Composer:
