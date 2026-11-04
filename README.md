@@ -8,7 +8,7 @@
 Diseño moderno, modo oscuro nativo, paleta de marca y experiencia pulida lista para producción.
 
 [![License: CC BY-SA 3.0](https://img.shields.io/badge/License-CC%20BY--SA%203.0-a27aff?style=flat-square)](http://creativecommons.org/licenses/by-sa/3.0/)
-[![Roundcube](https://img.shields.io/badge/Roundcube-1.6%2B-7c3aed?style=flat-square)](https://roundcube.net/)
+[![Roundcube](https://img.shields.io/badge/Roundcube-1.7.5-7c3aed?style=flat-square)](https://roundcube.net/)
 [![Dark Mode](https://img.shields.io/badge/Dark%20Mode-Native-0f0f12?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTEyIDNhNiA2IDAgMCAwIDkgOSA5IDkgMCAxIDEtOSA5eiIvPjwvc3ZnPg==)](https://github.com/nextaura/nextaura-roundcube)
 [![Based on Elastic](https://img.shields.io/badge/Based%20on-Elastic%20Skin-6d28d9?style=flat-square)](https://github.com/roundcube/roundcubemail/tree/master/skins/elastic)
 
@@ -18,24 +18,14 @@ Diseño moderno, modo oscuro nativo, paleta de marca y experiencia pulida lista 
 
 ## Capturas de pantalla
 
-<table>
-  <tr>
-    <td align="center"><strong>Login — Modo oscuro</strong></td>
-    <td align="center"><strong>Redactar — Modo oscuro</strong></td>
-  </tr>
-  <tr>
-    <td><img width="480" alt="image" src="https://github.com/user-attachments/assets/8f0e2beb-c3b9-493f-aef5-174efa560a10" /></td>
-    <td><img width="480" alt="image" src="https://github.com/user-attachments/assets/50f837d6-1ad1-460a-aa54-37ff7b575a79" />
-</td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center"><strong>Redactar — Modo claro</strong></td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center"><img width="480" alt="image" src="https://github.com/user-attachments/assets/610cdb7e-925c-4a6e-a542-fe0d1709bf1b" />
-</td>
-  </tr>
-</table>
+| Modo claro | Modo oscuro |
+|---|---|
+| ![Login, modo claro](docs/capturas/login-light.png) | ![Login, modo oscuro](docs/capturas/login-dark.png) |
+| ![Bandeja de entrada, modo claro](docs/capturas/bandeja-light.png) | ![Bandeja de entrada, modo oscuro](docs/capturas/bandeja-dark.png) |
+| ![Redactar, modo claro](docs/capturas/redactar-light.png) | ![Redactar, modo oscuro](docs/capturas/redactar-dark.png) |
+| ![Configuración, modo claro](docs/capturas/ajustes-light.png) | ![Configuración, modo oscuro](docs/capturas/ajustes-dark.png) |
+
+Hechas con Roundcube 1.7.5 en Docker y correos de ejemplo.
 
 ---
 
@@ -47,7 +37,7 @@ Diseño moderno, modo oscuro nativo, paleta de marca y experiencia pulida lista 
 - **Logos por modo** — logo claro/oscuro y versión reducida para cada modo
 - **Scrollbars personalizadas** — thumb y track con los colores de marca en ambos modos
 - **Responsive** — layouts para desktop, tablet y móvil (widescreen)
-- **Construido sobre Elastic** — hereda la solidez del skin oficial de Roundcube
+- **Hereda de Elastic** — `extends: elastic`: plantillas y JavaScript siempre al día con tu Roundcube
 
 ---
 
@@ -66,30 +56,39 @@ Diseño moderno, modo oscuro nativo, paleta de marca y experiencia pulida lista 
 
 ---
 
+## Roundcube 1.7.5: hereda de Elastic
+
+Desde esta versión el skin **hereda de Elastic** (`"extends": "elastic"` en `meta.json`), como recomienda la [guía de skins de Roundcube](https://github.com/roundcube/roundcubemail/wiki/Skins), en lugar de ser una copia completa.
+
+- Las **plantillas, el JavaScript, las fuentes y los iconos** son los de Elastic de tu instalación, así que el skin recibe sus correcciones al actualizar Roundcube.
+- El skin solo aporta la **paleta** (`styles/colors.less`), los **ajustes de marca** (`styles/_styles.less` y `styles/_dark.less`), los **logos** (con `skin_logo` en `meta.json`, sin tocar plantillas), el favicon, la marca de agua y `templates/includes/layout.html`, la única plantilla propia, que carga la hoja de estilos de la marca.
+- Los estilos se compilan con los LESS de **Elastic 1.7.5**, y la CI comprueba que el CSS publicado está al día.
+- Compatible con el plugin [Mail Scheduler](https://github.com/TheIsmael12/roundcube-mail-scheduler) (envíos programados y respuestas automáticas), que incluye estilos para este skin.
+
+> Para Roundcube 1.6 usa la versión anterior del skin (commit `de6a07f`).
+
+---
+
 ## Estructura
 
 ```
 nextaura-roundcube/
-├── images/               # Logos y assets gráficos
-│   ├── logo.png          # Logo principal (modo claro)
-│   ├── logo-dark.png     # Logo para modo oscuro
-│   ├── logo-small.png    # Logo reducido (modo claro)
-│   └── logo-small-dark.png
+├── meta.json                 # "extends": "elastic", logos (skin_logo) y modo oscuro
+├── images/                   # Logos por modo y favicon
 ├── styles/
-│   ├── _styles.less      # ★ Overrides de marca NextAura
-│   ├── _variables.less   # Variables del tema base
-│   ├── colors.less       # Paleta de colores
-│   ├── dark.less         # Reglas de modo oscuro
-│   ├── styles.less       # Punto de entrada principal
-│   └── styles.min.css    # CSS compilado y minificado
-├── templates/            # Plantillas HTML de Roundcube
-├── fonts/                # Roboto + FontAwesome 5
-├── deps/                 # Bootstrap 4 bundle
-└── meta.json             # Metadatos del skin
+│   ├── colors.less           # ★ Paleta: solo lo que cambia respecto a Elastic
+│   ├── _styles.less          # ★ Ajustes de marca (variables @br-*)
+│   ├── _dark.less            # Ajustes del modo oscuro
+│   ├── styles.less           # Entrada: Elastic + paleta + ajustes
+│   ├── embed.less            # Contenido embebido (editor y mensajes)
+│   └── *.min.css             # CSS compilado
+├── templates/includes/
+│   └── layout.html           # Carga styles.css de la marca (copia de la de Elastic 1.7.5)
+├── bin/build.mjs             # Compilación de estilos
+├── watermark.html            # Marca de agua del panel vacío
+├── thumbnail.png
+└── docs/capturas/
 ```
-
-> Para personalizar la marca edita `styles/_styles.less` y `styles/_variables.less`.  
-> Los logos viven en `images/` — sustitúyelos manteniendo los mismos nombres.
 
 ---
 
@@ -98,8 +97,16 @@ nextaura-roundcube/
 ### 1. Copiar el skin
 
 ```bash
-cp -r nextaura-roundcube /var/www/roundcube/skins/nextaura
+git clone https://github.com/TheIsmael12/nextaura-roundcube.git /var/www/roundcube/skins/nextaura
 ```
+
+O con Composer:
+
+```bash
+composer require theismael12/nextaura
+```
+
+El skin necesita `skins/elastic`, que viene siempre con Roundcube.
 
 ### 2. Activar en Roundcube
 
@@ -108,46 +115,26 @@ cp -r nextaura-roundcube /var/www/roundcube/skins/nextaura
 $config['skin'] = 'nextaura';
 ```
 
-### 3. Limpiar caché de assets (opcional)
-
-```bash
-cd /var/www/roundcube
-bin/updatecss.sh --dir skins/nextaura
-```
-
 ---
 
 ## Compilar estilos
 
-Los estilos están escritos en **LESS**. Para recompilar tras modificar `_styles.less` o `_variables.less`:
+Tras tocar `colors.less`, `_styles.less` o `_dark.less`, o al actualizar Roundcube:
 
-**Requisitos:**
 ```bash
-npm install -g less less-plugin-clean-css
+cd /var/www/roundcube/skins/nextaura
+npm install
+npm run build        # usa ../elastic de la instalación
 ```
 
-**Compilar:**
+Fuera de una instalación de Roundcube:
+
 ```bash
-lessc --clean-css="--s1 --advanced" styles/styles.less > styles/styles.min.css
-lessc --clean-css="--s1 --advanced" styles/print.less  > styles/print.min.css
-lessc --clean-css="--s1 --advanced" styles/embed.less  > styles/embed.min.css
+ELASTIC_DIR=/ruta/a/roundcube/skins/elastic npm run build
+npm run build -- --download   # descarga Elastic 1.7.5 de la release oficial
 ```
 
-> `lessc` >= 2.5.2 requerido.
-
----
-
-## Logos recomendados
-
-| Archivo                  | Uso                         | Tamaño recomendado |
-|--------------------------|-----------------------------|--------------------|
-| `images/logo.png`        | Login y cabecera modo claro | 500×200 px, PNG    |
-| `images/logo-dark.png`   | Login y cabecera modo oscuro| 500×200 px, PNG    |
-| `images/logo-small.png`  | Menú lateral modo claro     | 64×64 px, PNG      |
-| `images/logo-small-dark.png` | Menú lateral modo oscuro| 64×64 px, PNG      |
-| `images/favicon.ico`     | Favicon del navegador       | 32×32 px, ICO      |
-
-Todos deben tener **fondo transparente**.
+`npm run check -- --download` comprueba que el CSS publicado coincide con el que se generaría (es lo que ejecuta la CI).
 
 ---
 
