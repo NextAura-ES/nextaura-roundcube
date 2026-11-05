@@ -138,6 +138,12 @@ npm run build -- --download   # descarga Elastic 1.7.5 de la release oficial
 
 ---
 
+## Ramas
+
+Solo hay dos ramas permanentes: **`main`** (la versión en uso) y **`dev`** (desarrollo). Los cambios
+van en ramas `feature/…` o `fix/…` desde `dev`, con PR a `dev`, y se borran al fusionar; `main`
+recibe `dev` al publicar.
+
 ## Créditos
 
 Este skin está construido sobre el excelente tema **Elastic** del equipo de Roundcube.
