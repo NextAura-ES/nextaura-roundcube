@@ -2,7 +2,7 @@
     "name": "theismael12/nextaura",
     "type": "roundcube-skin",
     "description": "NextAura Mail: skin de Roundcube basado en Elastic",
-    "homepage": "https://github.com/TheIsmael12/nextaura-roundcube",
+    "homepage": "https://github.com/NextAura-ES/nextaura-roundcube",
     "license": "CC-BY-SA-3.0",
     "require": {
         "roundcube/plugin-installer": ">=0.3.0"
