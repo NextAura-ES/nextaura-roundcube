@@ -11,6 +11,7 @@ Diseño moderno, modo oscuro nativo, paleta de marca y experiencia pulida lista 
 [![Roundcube](https://img.shields.io/badge/Roundcube-1.7.5-7c3aed?style=flat-square)](https://roundcube.net/)
 [![Dark Mode](https://img.shields.io/badge/Dark%20Mode-Native-0f0f12?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTEyIDNhNiA2IDAgMCAwIDkgOSA5IDkgMCAxIDEtOSA5eiIvPjwvc3ZnPg==)](https://github.com/nextaura/nextaura-roundcube)
 [![Based on Elastic](https://img.shields.io/badge/Based%20on-Elastic%20Skin-6d28d9?style=flat-square)](https://github.com/roundcube/roundcubemail/tree/master/skins/elastic)
+![Visitas](https://visitor-badge.laobi.icu/badge?page_id=NextAura-ES.nextaura-roundcube&left_text=visitas&right_color=%23a27aff)
 
 </div>
 
